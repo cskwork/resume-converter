@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이력서 최적화 도구</title>
+    <style>
+        /* Container styles */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Model selector styles */
+        .model-selector {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .model-selector label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+        
+        .model-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+        }
+        
+        .model-controls select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            background-color: white;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.2s;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+        
+        .model-controls .btn-add-model {
+            width: auto;
+            align-self: flex-end;
+            min-width: 120px;
+            margin-top: 4px;
+        }
+        
+        /* Current model indicator */
+        .current-model {
+            position: absolute;
+            top: -20px;
+            right: 0;
+            font-size: 0.85rem;
+            color: #6c757d;
+            background: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 12px;
+            pointer-events: none;
+            z-index: 1;
+            max-width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        /* Dropdown option styles */
+        .model-controls select option {
+            padding: 12px;
+            font-size: 0.95rem;
+            color: #333;
+            background-color: white;
+            cursor: pointer;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        /* Selected option in dropdown */
+        .model-controls select option:checked,
+        .model-controls select option:hover,
+        .model-controls select option:focus {
+            background: #007bff !important;
+            color: white !important;
+        }
+        
+        /* Button styles */
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #545b62;
+            transform: translateY(-1px);
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal-content {
+            position: relative;
+            background-color: white;
+            margin: 10% auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .modal-content h2 {
+            margin: 0 0 20px 0;
+            color: #333;
+            font-size: 1.5rem;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .input-group input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+        
+        .input-group input::placeholder {
+            color: #adb5bd;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 25px;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .progress-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .progress-step {
+            text-align: center;
+            position: relative;
+            flex: 1;
+        }
+        
+        .progress-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 60%;
+            width: 80%;
+            height: 2px;
+            background: #ddd;
+        }
+        
+        .step-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ddd;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+        
+        .step-icon.active {
+            background: #007bff;
+        }
+        
+        .step-icon.complete {
+            background: #28a745;
+        }
+        
+        .step-text {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .step-text.active {
+            color: #007bff;
+            font-weight: bold;
+        }
+        
+        .search-progress {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .search-url {
+            font-family: monospace;
+            word-break: break-all;
+            margin: 5px 0;
+            padding: 5px;
+            background: #fff;
+            border-radius: 3px;
+        }
+        
+        .reference-list {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .reference-list h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .reference-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .reference-list li {
+            margin: 5px 0;
+            padding: 5px;
+            background: #fff;
+            border-radius: 3px;
+            font-size: 14px;
+            word-break: break-all;
+        }
+        
+        .model-selector {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .model-selector label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .model-selector select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+        }
+        
+        .model-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .model-controls select {
+            flex: 1;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            position: relative;
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #545b62;
+        }
+        
+        /* Markdown styling */
+        .markdown-content {
+            line-height: 1.6;
+            color: #24292e;
+        }
+        
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3 {
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+        
+        .markdown-content h1 {
+            font-size: 2em;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: .3em;
+        }
+        
+        .markdown-content h2 {
+            font-size: 1.5em;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: .3em;
+        }
+        
+        .markdown-content h3 {
+            font-size: 1.25em;
+        }
+        
+        .markdown-content p {
+            margin-bottom: 16px;
+        }
+        
+        .markdown-content ul,
+        .markdown-content ol {
+            margin-bottom: 16px;
+            padding-left: 2em;
+        }
+        
+        .markdown-content li {
+            margin: 0.25em 0;
+        }
+        
+        .markdown-content code {
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            background-color: rgba(27,31,35,0.05);
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        .markdown-content pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f6f8fa;
+            border-radius: 3px;
+        }
+        
+        .markdown-content pre code {
+            display: inline;
+            padding: 0;
+            margin: 0;
+            overflow: visible;
+            line-height: inherit;
+            word-wrap: normal;
+            background-color: transparent;
+            border: 0;
+        }
+        
+        .progress-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .progress-step {
+            text-align: center;
+            position: relative;
+            flex: 1;
+        }
+        
+        .progress-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 60%;
+            width: 80%;
+            height: 2px;
+            background: #ddd;
+        }
+        
+        .step-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ddd;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+        
+        .step-icon.active {
+            background: #007bff;
+        }
+        
+        .step-icon.complete {
+            background: #28a745;
+        }
+        
+        .step-text {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .step-text.active {
+            color: #007bff;
+            font-weight: bold;
+        }
+        
+        .search-progress {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .search-url {
+            font-family: monospace;
+            word-break: break-all;
+            margin: 5px 0;
+            padding: 5px;
+            background: #fff;
+            border-radius: 3px;
+        }
+        
+        .reference-list {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .reference-list h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .reference-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .reference-list li {
+            margin: 5px 0;
+            padding: 5px;
+            background: #fff;
+            border-radius: 3px;
+            font-size: 14px;
+            word-break: break-all;
+        }
+        
+        .model-selector {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .model-selector label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .model-selector select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+        }
+        
+        .model-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .model-controls select {
+            flex: 1;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            position: relative;
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #545b62;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>한국어 이력서 최적화</h1>
+        
+        <div class="model-selector">
+            <label for="modelSelect">AI 모델 선택:</label>
+            <div class="model-controls">
+                <span class="current-model" id="currentModel"></span>
+                <select id="modelSelect" onchange="switchModel(this.value)">
+                    <!-- Will be populated dynamically -->
+                </select>
+                <button onclick="showAddModelDialog()" class="btn btn-secondary btn-add-model">새 모델 추가</button>
+            </div>
+        </div>
+
+        <!-- Add Model Dialog -->
+        <div id="addModelDialog" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>새 모델 등록</h2>
+                <div class="input-group">
+                    <label for="newModelId">모델 ID:</label>
+                    <input type="text" id="newModelId" placeholder="예: mistral:7b-instruct-v0.2" maxlength="50">
+                </div>
+                <div class="input-group">
+                    <label for="newModelName">표시 이름:</label>
+                    <input type="text" id="newModelName" placeholder="예: Mistral 7B" maxlength="30">
+                </div>
+                <div class="modal-buttons">
+                    <button onclick="registerNewModel()" class="btn btn-primary">등록</button>
+                    <button onclick="hideAddModelDialog()" class="btn btn-secondary">취소</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="company">회사명:</label>
+            <input type="text" id="company" placeholder="회사 이름을 입력하세요">
+        </div>
+
+        <div class="input-group">
+            <label for="resume">이력서:</label>
+            <textarea id="resume" placeholder="여기에 원본 이력서를 붙여넣으세요"></textarea>
+        </div>
+
+        <button onclick="submitForm()">이력서 최적화하기</button>
+
+        <div class="loading" id="loading">
+            처리중... 잠시만 기다려주세요.
+        </div>
+
+        <div class="progress-container" id="progressContainer" style="display: none;">
+            <div class="progress-step">
+                <div class="step-icon" id="step1">1</div>
+                <div class="step-text" id="step1Text">분석 시작</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-icon" id="step2">2</div>
+                <div class="step-text" id="step2Text">회사 정보 수집</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-icon" id="step3">3</div>
+                <div class="step-text" id="step3Text">이력서 최적화</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-icon" id="step4">4</div>
+                <div class="step-text" id="step4Text">완료</div>
+            </div>
+        </div>
+
+        <div class="result" id="result" style="display: none;">
+            <h3>최적화된 이력서:</h3>
+            <div id="optimizedResume" class="markdown-content"></div>
+            
+            <h3>회사 분석:</h3>
+            <div id="companyAnalysis" class="markdown-content"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // Configure marked options
+        marked.setOptions({
+            breaks: true,  // Convert line breaks to <br>
+            gfm: true,    // Enable GitHub Flavored Markdown
+            sanitize: false, // Allow HTML in the markdown
+            smartLists: true,
+            smartypants: true
+        });
+
+        // Load available models on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadModels();
+        });
+
+        // Load and populate model selector
+        async function loadModels() {
+            try {
+                const response = await fetch('/models');
+                const models = await response.json();
+                
+                const select = document.getElementById('modelSelect');
+                select.innerHTML = models.map(model => 
+                    `<option value="${model.id}">${model.name}</option>`
+                ).join('');
+                
+                // Get current model and set it as selected
+                const currentModel = await fetch('/model').then(r => r.json());
+                select.value = currentModel.model;
+                
+                // Update current model indicator
+                updateCurrentModelIndicator(currentModel.model);
+            } catch (error) {
+                console.error('Error loading models:', error);
+            }
+        }
+        
+        // Update current model indicator
+        function updateCurrentModelIndicator(modelId) {
+            const select = document.getElementById('modelSelect');
+            const option = select.querySelector(`option[value="${modelId}"]`);
+            const indicator = document.getElementById('currentModel');
+            if (option) {
+                indicator.textContent = `현재: ${option.textContent}`;
+            }
+        }
+        
+        // Switch to a different model
+        async function switchModel(modelId) {
+            try {
+                const response = await fetch('/model', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ model: modelId })
+                });
+                
+                const result = await response.json();
+                if (result.error) {
+                    alert('모델 변경 중 오류가 발생했습니다: ' + result.error);
+                    return;
+                }
+                
+                // Update current model indicator
+                updateCurrentModelIndicator(modelId);
+                
+            } catch (error) {
+                console.error('Error switching model:', error);
+                alert('모델 변경 중 오류가 발생했습니다.');
+            }
+        }
+
+        function submitForm() {
+            const company = document.getElementById('company').value;
+            const resume = document.getElementById('resume').value;
+            
+            if (!company || !resume) {
+                alert('회사명과 이력서 내용을 모두 입력해주세요.');
+                return;
+            }
+            
+            // Reset and show progress container
+            document.getElementById('progressContainer').style.display = 'flex';
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('result').style.display = 'none';
+            resetProgress();
+            
+            // Send POST request with JSON data
+            fetch('/optimize', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    company: company,
+                    resume: resume
+                })
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                
+                function readStream() {
+                    reader.read().then(({done, value}) => {
+                        if (done) {
+                            return;
+                        }
+                        
+                        const chunk = decoder.decode(value);
+                        const lines = chunk.split('\n');
+                        
+                        lines.forEach(line => {
+                            if (line.startsWith('data: ')) {
+                                try {
+                                    const data = JSON.parse(line.slice(6));
+                                    console.log('Received data:', data);  // Debug log
+                                    
+                                    updateProgress(data);
+                                    
+                                    if (data.status === 'complete') {
+                                        displayResults(data);
+                                    } else if (data.status === 'error') {
+                                        displayResults({ error: data.message });
+                                    }
+                                } catch (error) {
+                                    console.error('Error parsing JSON:', error, 'Line:', line);
+                                }
+                            }
+                        });
+                        
+                        readStream();
+                    }).catch(error => {
+                        console.error('Stream reading failed:', error);
+                        displayResults({ error: '데이터 처리 중 오류가 발생했습니다.' });
+                    });
+                }
+                
+                readStream();
+            }).catch(error => {
+                console.error('Request failed:', error);
+                displayResults({ error: '서버 연결 중 오류가 발생했습니다.' });
+            });
+        }
+        
+        function resetProgress() {
+            const steps = document.querySelectorAll('.step-icon');
+            const texts = document.querySelectorAll('.step-text');
+            steps.forEach(step => {
+                step.classList.remove('active', 'complete');
+            });
+            texts.forEach(text => {
+                text.classList.remove('active');
+            });
+        }
+        
+        function updateProgress(data) {
+            const steps = {
+                'started': 1,
+                'analyzing': 2,
+                'analyzed': 2,
+                'optimizing': 3,
+                'complete': 4
+            };
+            
+            const currentStep = steps[data.status] || 1;
+            
+            // Update step icons and texts
+            for (let i = 1; i <= 4; i++) {
+                const stepIcon = document.getElementById('step' + i);
+                const stepText = document.getElementById('step' + i + 'Text');
+                
+                if (i < currentStep) {
+                    stepIcon.classList.add('complete');
+                    stepIcon.classList.remove('active');
+                } else if (i === currentStep) {
+                    stepIcon.classList.add('active');
+                    stepIcon.classList.remove('complete');
+                    stepText.classList.add('active');
+                } else {
+                    stepIcon.classList.remove('active', 'complete');
+                    stepText.classList.remove('active');
+                }
+            }
+            
+            // Update status message if provided
+            if (data.message) {
+                const stepText = document.getElementById('step' + currentStep + 'Text');
+                stepText.textContent = data.message;
+                
+                // If this is a searching status, show the URL being searched
+                if (data.message.startsWith('검색 중:')) {
+                    const searchProgress = document.getElementById('searchProgress');
+                    if (!searchProgress) {
+                        const progressDiv = document.createElement('div');
+                        progressDiv.id = 'searchProgress';
+                        progressDiv.className = 'search-progress';
+                        progressDiv.innerHTML = '<h4>웹사이트 검색 진행 상황:</h4>';
+                        document.getElementById('progressContainer').after(progressDiv);
+                    }
+                    
+                    const urlDiv = document.createElement('div');
+                    urlDiv.className = 'search-url';
+                    urlDiv.textContent = data.message.replace('검색 중: ', '');
+                    document.getElementById('searchProgress').appendChild(urlDiv);
+                }
+            }
+        }
+        
+        function displayResults(data) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';  // Make sure result div is visible
+            
+            if (data.error) {
+                resultDiv.innerHTML = `
+                    <div class="error-message">
+                        <h2>오류가 발생했습니다</h2>
+                        <p>${data.error}</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            try {
+                resultDiv.innerHTML = `
+                    <h2>회사 분석 결과</h2>
+                    <div class="markdown-content">${marked.parse(data.company_analysis)}</div>
+                    
+                    <h2>최적화된 이력서</h2>
+                    <div class="markdown-content">${marked.parse(data.optimized_resume)}</div>
+                `;
+                
+                // Log the data for debugging
+                console.log('Company Analysis:', data.company_analysis);
+                console.log('Optimized Resume:', data.optimized_resume);
+            } catch (error) {
+                console.error('Error displaying results:', error);
+                resultDiv.innerHTML = `
+                    <div class="error-message">
+                        <h2>결과 표시 중 오류가 발생했습니다</h2>
+                        <p>${error.message}</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    </div>
+                `;
+            }
+        }
+        
+        // Show/hide model dialog
+        function showAddModelDialog() {
+            document.getElementById('addModelDialog').style.display = 'block';
+        }
+        
+        function hideAddModelDialog() {
+            document.getElementById('addModelDialog').style.display = 'none';
+            // Clear inputs
+            document.getElementById('newModelId').value = '';
+            document.getElementById('newModelName').value = '';
+        }
+        
+        // Register new model
+        async function registerNewModel() {
+            const modelId = document.getElementById('newModelId').value.trim();
+            const modelName = document.getElementById('newModelName').value.trim();
+            
+            if (!modelId) {
+                alert('모델 ID를 입력해주세요.');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/models', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id: modelId,
+                        name: modelName || modelId
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.error) {
+                    alert(result.error);
+                    return;
+                }
+                
+                // Refresh model list
+                await loadModels();
+                
+                // Switch to new model
+                await switchModel(modelId);
+                
+                // Hide dialog
+                hideAddModelDialog();
+                
+                alert('새 모델이 성공적으로 등록되었습니다.');
+            } catch (error) {
+                console.error('Error registering model:', error);
+                alert('모델 등록 중 오류가 발생했습니다.');
+            }
+        }
+    </script>
+</body>
+</html>

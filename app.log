@@ -1,0 +1,400 @@
+2024-11-30 00:16:58,796 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:16:58,797 - INFO - Starting Flask application on port 5001
+2024-11-30 00:16:58,802 - WARNING -  * Debugger is active!
+2024-11-30 00:16:58,810 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:16:58,899 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:16:58,900 - INFO - Starting Flask application on port 5001
+2024-11-30 00:16:58,902 - WARNING -  * Debugger is active!
+2024-11-30 00:16:58,909 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:17:29,006 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:17:29,007 - INFO - Starting Flask application on port 5001
+2024-11-30 00:18:43,458 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:18:43,459 - INFO - Starting Flask application on port 5001
+2024-11-30 00:18:43,464 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-30 00:18:43,464 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-30 00:18:43,464 - INFO -  * Restarting with stat
+2024-11-30 00:18:43,740 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:18:43,741 - INFO - Starting Flask application on port 5001
+2024-11-30 00:18:43,744 - WARNING -  * Debugger is active!
+2024-11-30 00:18:43,752 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:20:45,945 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:20:46,052 - INFO -  * Restarting with stat
+2024-11-30 00:20:46,373 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:20:46,373 - INFO - Starting Flask application on port 5001
+2024-11-30 00:20:46,376 - WARNING -  * Debugger is active!
+2024-11-30 00:20:46,384 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:21:26,803 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:21:26,804 - INFO - Starting Flask application on port 5001
+2024-11-30 00:21:26,810 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-30 00:21:26,810 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-30 00:21:26,810 - INFO -  * Restarting with stat
+2024-11-30 00:21:27,076 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:21:27,077 - INFO - Starting Flask application on port 5001
+2024-11-30 00:21:27,079 - WARNING -  * Debugger is active!
+2024-11-30 00:21:27,087 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:21:44,536 - INFO - 127.0.0.1 - - [30/Nov/2024 00:21:44] "GET / HTTP/1.1" 200 -
+2024-11-30 00:22:00,792 - INFO - Received conversion request for company: 한화생명
+2024-11-30 00:22:00,792 - INFO - Starting company analysis
+2024-11-30 00:22:00,792 - INFO - Starting company analysis for: 한화생명
+2024-11-30 00:22:00,792 - INFO - Starting web search for company: 한화생명
+2024-11-30 00:22:00,792 - INFO - Executing search query: 한화생명 회사 문화 가치관 채용 2024
+2024-11-30 00:22:01,725 - INFO - Found 7 search results
+2024-11-30 00:22:04,302 - INFO - Scraping URL: https://linkareer.com/activity/174491
+2024-11-30 00:22:07,415 - INFO - Successfully extracted 10481 characters from https://linkareer.com/activity/174491
+2024-11-30 00:22:08,835 - INFO - Scraping URL: https://linkareer.com/activity/175478
+2024-11-30 00:22:11,076 - INFO - Successfully extracted 8773 characters from https://linkareer.com/activity/175478
+2024-11-30 00:22:13,590 - INFO - Scraping URL: https://www.hanwha.co.kr/newsroom/media_center/news/news_view.do?seq=13366
+2024-11-30 00:22:15,452 - INFO - Scraping URL: https://www.jobkorea.co.kr/company/1948577/keyword
+2024-11-30 00:22:15,829 - INFO - Successfully extracted 203863 characters from https://www.jobkorea.co.kr/company/1948577/keyword
+2024-11-30 00:22:16,878 - INFO - Scraping URL: https://www.catch.co.kr/NCS/RecruitInfoDetails/396068
+2024-11-30 00:22:17,856 - INFO - Successfully extracted 5711 characters from https://www.catch.co.kr/NCS/RecruitInfoDetails/396068
+2024-11-30 00:22:20,006 - INFO - Scraping URL: https://www.news2day.co.kr/article/20240402500197
+2024-11-30 00:22:20,943 - INFO - Successfully extracted 65638 characters from https://www.news2day.co.kr/article/20240402500197
+2024-11-30 00:22:22,072 - INFO - Scraping URL: https://www.catch.co.kr/NCS/RecruitInfoDetails/358563
+2024-11-30 00:22:22,987 - INFO - Successfully extracted 5591 characters from https://www.catch.co.kr/NCS/RecruitInfoDetails/358563
+2024-11-30 00:22:22,987 - INFO - Successfully gathered information from 6 sources
+2024-11-30 00:22:22,989 - INFO - Sending company analysis prompt to Ollama
+2024-11-30 00:23:19,135 - INFO - Successfully received company analysis from Ollama
+2024-11-30 00:23:19,135 - INFO - Starting resume optimization
+2024-11-30 00:23:19,135 - INFO - Starting resume optimization
+2024-11-30 00:23:19,135 - INFO - Sending resume optimization prompt to Ollama
+2024-11-30 00:23:59,738 - INFO - Successfully received optimized resume from Ollama
+2024-11-30 00:23:59,738 - INFO - Successfully completed resume conversion
+2024-11-30 00:23:59,738 - INFO - 127.0.0.1 - - [30/Nov/2024 00:23:59] "POST /convert HTTP/1.1" 200 -
+2024-11-30 00:24:41,298 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:24:41,394 - INFO -  * Restarting with stat
+2024-11-30 00:24:41,819 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:24:41,820 - INFO - Starting Flask application on port 5001
+2024-11-30 00:24:41,825 - WARNING -  * Debugger is active!
+2024-11-30 00:24:41,833 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:24:44,919 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:24:44,975 - INFO -  * Restarting with stat
+2024-11-30 00:24:45,351 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:24:45,352 - INFO - Starting Flask application on port 5001
+2024-11-30 00:24:45,355 - WARNING -  * Debugger is active!
+2024-11-30 00:24:45,362 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:24:46,399 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:24:46,452 - INFO -  * Restarting with stat
+2024-11-30 00:24:46,756 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:24:46,756 - INFO - Starting Flask application on port 5001
+2024-11-30 00:24:46,759 - WARNING -  * Debugger is active!
+2024-11-30 00:24:46,767 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:24:52,878 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:24:52,939 - INFO -  * Restarting with stat
+2024-11-30 00:24:53,243 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:24:53,243 - INFO - Starting Flask application on port 5001
+2024-11-30 00:24:53,246 - WARNING -  * Debugger is active!
+2024-11-30 00:24:53,253 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:25:25,806 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:25:25,882 - INFO -  * Restarting with stat
+2024-11-30 00:25:26,171 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:25:26,171 - INFO - Starting Flask application on port 5001
+2024-11-30 00:25:26,175 - WARNING -  * Debugger is active!
+2024-11-30 00:25:26,182 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:27:26,860 - INFO - 127.0.0.1 - - [30/Nov/2024 00:27:26] "GET / HTTP/1.1" 200 -
+2024-11-30 00:27:44,874 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:27:44,874 - INFO - Starting Flask application on port 5001
+2024-11-30 00:27:44,880 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-30 00:27:44,880 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-30 00:27:44,880 - INFO -  * Restarting with stat
+2024-11-30 00:27:45,153 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:27:45,154 - INFO - Starting Flask application on port 5001
+2024-11-30 00:27:45,156 - WARNING -  * Debugger is active!
+2024-11-30 00:27:45,165 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:28:03,345 - INFO - 127.0.0.1 - - [30/Nov/2024 00:28:03] "[31m[1mGET /optimize?company=한화생명&resume=[성장하는+개발자]%0A저는+지속적으로+성장하는+개발자입니다.+기존+기술을+깊이+있게+탐구하고+개선하며,+새로운+기술을+학습하는+것을+즐깁니다.+개발의+핵심은+사용자가+편리하게+이용할+수+있는+서비스를+만드는+것이라고+생각하며,+이를+위해+사용자+중심의+서비스를+개발하려고+노력합니다.+동료+개발자부터+최종+사용자까지+서비스의+대상에+맞추어,+직관적이고+유지보수가+쉬운+시스템을+구축하는+것이+저의+목표입니다.+개발+초기부터+명확한+문서와+코드를+통해+생산성+높은+프로세스를+만드는+습관을+기르고+있습니다. HTTP/1.1[0m" 405 -
+2024-11-30 00:28:23,343 - INFO - 127.0.0.1 - - [30/Nov/2024 00:28:23] "GET / HTTP/1.1" 200 -
+2024-11-30 00:28:28,505 - INFO - 127.0.0.1 - - [30/Nov/2024 00:28:28] "[31m[1mGET /optimize?company=한화생명&resume=[성장하는+개발자]%0A저는+지속적으로+성장하는+개발자입니다.+기존+기술을+깊이+있게+탐구하고+개선하며,+새로운+기술을+학습하는+것을+즐깁니다.+개발의+핵심은+사용자가+편리하게+이용할+수+있는+서비스를+만드는+것이라고+생각하며,+이를+위해+사용자+중심의+서비스를+개발하려고+노력합니다.+동료+개발자부터+최종+사용자까지+서비스의+대상에+맞추어,+직관적이고+유지보수가+쉬운+시스템을+구축하는+것이+저의+목표입니다.+개발+초기부터+명확한+문서와+코드를+통해+생산성+높은+프로세스를+만드는+습관을+기르고+있습니다. HTTP/1.1[0m" 405 -
+2024-11-30 00:29:23,840 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:29:23,943 - INFO -  * Restarting with stat
+2024-11-30 00:29:24,260 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:29:24,260 - INFO - Starting Flask application on port 5001
+2024-11-30 00:29:24,263 - WARNING -  * Debugger is active!
+2024-11-30 00:29:24,271 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:29:34,507 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:29:34,598 - INFO -  * Restarting with stat
+2024-11-30 00:29:34,905 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:29:34,905 - INFO - Starting Flask application on port 5001
+2024-11-30 00:29:34,908 - WARNING -  * Debugger is active!
+2024-11-30 00:29:34,914 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:38:56,933 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:38:56,934 - INFO - Starting Flask application on port 5001
+2024-11-30 00:38:56,939 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-30 00:38:56,939 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-30 00:38:56,939 - INFO -  * Restarting with stat
+2024-11-30 00:38:57,221 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:38:57,221 - INFO - Starting Flask application on port 5001
+2024-11-30 00:38:57,224 - WARNING -  * Debugger is active!
+2024-11-30 00:38:57,232 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:39:12,383 - INFO - 127.0.0.1 - - [30/Nov/2024 00:39:12] "GET / HTTP/1.1" 200 -
+2024-11-30 00:39:17,019 - INFO - 127.0.0.1 - - [30/Nov/2024 00:39:17] "POST /optimize HTTP/1.1" 200 -
+2024-11-30 00:39:17,522 - INFO - Starting company analysis for: 한화생명
+2024-11-30 00:39:17,522 - INFO - Starting web search for company: 한화생명
+2024-11-30 00:39:17,522 - INFO - Executing search query: 한화생명 회사 문화 가치관 채용 2024
+2024-11-30 00:39:18,416 - INFO - Found 7 search results
+2024-11-30 00:39:20,075 - INFO - Scraping URL: https://linkareer.com/activity/174491
+2024-11-30 00:39:21,784 - INFO - Successfully extracted 10481 characters from https://linkareer.com/activity/174491
+2024-11-30 00:39:23,373 - INFO - Scraping URL: https://linkareer.com/activity/175478
+2024-11-30 00:39:24,071 - INFO - Successfully extracted 8773 characters from https://linkareer.com/activity/175478
+2024-11-30 00:39:26,649 - INFO - Scraping URL: https://www.catch.co.kr/NCS/RecruitInfoDetails/396068
+2024-11-30 00:39:27,384 - INFO - Successfully extracted 5961 characters from https://www.catch.co.kr/NCS/RecruitInfoDetails/396068
+2024-11-30 00:39:29,602 - INFO - Scraping URL: https://www.jobkorea.co.kr/company/1948577/keyword
+2024-11-30 00:39:29,935 - INFO - Successfully extracted 203863 characters from https://www.jobkorea.co.kr/company/1948577/keyword
+2024-11-30 00:39:32,653 - INFO - Scraping URL: https://www.catch.co.kr/NCS/RecruitInfoDetails/358563
+2024-11-30 00:39:33,357 - INFO - Successfully extracted 5591 characters from https://www.catch.co.kr/NCS/RecruitInfoDetails/358563
+2024-11-30 00:39:35,849 - INFO - Scraping URL: https://www.hanwha.co.kr/newsroom/media_center/news/news_view.do?seq=13366
+2024-11-30 00:39:37,315 - INFO - Scraping URL: https://www.news2day.co.kr/article/20240402500197
+2024-11-30 00:39:37,729 - INFO - Successfully extracted 65638 characters from https://www.news2day.co.kr/article/20240402500197
+2024-11-30 00:39:37,729 - INFO - Successfully gathered information from 6 sources
+2024-11-30 00:39:37,731 - INFO - Sending company analysis prompt to Ollama
+2024-11-30 00:40:05,183 - INFO - Successfully received company analysis from Ollama
+2024-11-30 00:40:05,688 - INFO - Starting resume optimization
+2024-11-30 00:40:05,689 - INFO - Sending resume optimization prompt to Ollama
+2024-11-30 00:40:25,371 - INFO - Successfully received optimized resume from Ollama
+2024-11-30 00:42:10,235 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:42:10,344 - INFO -  * Restarting with stat
+2024-11-30 00:42:10,822 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:42:10,822 - INFO - Starting Flask application on port 5001
+2024-11-30 00:42:10,827 - WARNING -  * Debugger is active!
+2024-11-30 00:42:10,834 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:42:54,303 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:42:54,303 - INFO - Starting Flask application on port 5001
+2024-11-30 00:42:54,312 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-30 00:42:54,312 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-30 00:42:54,313 - INFO -  * Restarting with stat
+2024-11-30 00:42:54,582 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:42:54,582 - INFO - Starting Flask application on port 5001
+2024-11-30 00:42:54,585 - WARNING -  * Debugger is active!
+2024-11-30 00:42:54,592 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:43:02,337 - INFO - 127.0.0.1 - - [30/Nov/2024 00:43:02] "GET / HTTP/1.1" 200 -
+2024-11-30 00:43:19,661 - INFO - 127.0.0.1 - - [30/Nov/2024 00:43:19] "POST /optimize HTTP/1.1" 200 -
+2024-11-30 00:43:20,167 - INFO - Starting company analysis for: 한화생명
+2024-11-30 00:43:20,168 - INFO - Starting web search for company: 한화생명
+2024-11-30 00:43:20,168 - INFO - Executing search query: 한화생명 회사 문화 가치관 채용 2024
+2024-11-30 00:43:20,781 - INFO - Found 7 search results
+2024-11-30 00:43:22,635 - INFO - Scraping URL: https://linkareer.com/activity/174491
+2024-11-30 00:43:22,726 - INFO - Successfully extracted 10481 characters from https://linkareer.com/activity/174491
+2024-11-30 00:43:25,593 - INFO - Scraping URL: https://linkareer.com/activity/175478
+2024-11-30 00:43:25,695 - INFO - Successfully extracted 8773 characters from https://linkareer.com/activity/175478
+2024-11-30 00:43:26,705 - INFO - Scraping URL: https://www.catch.co.kr/NCS/RecruitInfoDetails/396068
+2024-11-30 00:43:27,299 - INFO - Successfully extracted 5831 characters from https://www.catch.co.kr/NCS/RecruitInfoDetails/396068
+2024-11-30 00:43:29,975 - INFO - Scraping URL: https://www.jobkorea.co.kr/company/1948577/keyword
+2024-11-30 00:43:30,136 - INFO - Successfully extracted 203863 characters from https://www.jobkorea.co.kr/company/1948577/keyword
+2024-11-30 00:43:31,399 - INFO - Scraping URL: https://www.hanwha.co.kr/newsroom/media_center/news/news_view.do?seq=13366
+2024-11-30 00:43:32,568 - INFO - Scraping URL: https://www.news2day.co.kr/article/20240402500197
+2024-11-30 00:43:32,699 - INFO - Successfully extracted 65638 characters from https://www.news2day.co.kr/article/20240402500197
+2024-11-30 00:43:35,266 - INFO - Scraping URL: https://www.catch.co.kr/NCS/RecruitInfoDetails/358563
+2024-11-30 00:43:35,779 - INFO - Successfully extracted 5591 characters from https://www.catch.co.kr/NCS/RecruitInfoDetails/358563
+2024-11-30 00:43:35,779 - INFO - Successfully gathered information from 6 sources
+2024-11-30 00:43:35,780 - INFO - Sending company analysis prompt to Ollama
+2024-11-30 00:44:03,781 - INFO - Successfully received company analysis from Ollama
+2024-11-30 00:44:04,281 - INFO - Starting resume optimization
+2024-11-30 00:44:04,281 - INFO - Sending resume optimization prompt to Ollama
+2024-11-30 00:44:26,371 - INFO - Successfully received optimized resume from Ollama
+2024-11-30 00:44:26,371 - INFO - Successfully completed optimization process
+2024-11-30 00:45:55,882 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:45:55,990 - INFO -  * Restarting with stat
+2024-11-30 00:45:56,464 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:45:56,464 - INFO - Starting Flask application on port 5001
+2024-11-30 00:45:56,469 - WARNING -  * Debugger is active!
+2024-11-30 00:45:56,476 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:47:27,832 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:47:27,892 - INFO -  * Restarting with stat
+2024-11-30 00:47:28,286 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:47:28,286 - INFO - Starting Flask application on port 5001
+2024-11-30 00:47:28,291 - WARNING -  * Debugger is active!
+2024-11-30 00:47:28,299 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:47:34,464 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:47:34,517 - INFO -  * Restarting with stat
+2024-11-30 00:47:34,835 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:47:34,836 - INFO - Starting Flask application on port 5001
+2024-11-30 00:47:34,839 - WARNING -  * Debugger is active!
+2024-11-30 00:47:34,846 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:47:59,073 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:47:59,073 - INFO - Starting Flask application on port 5001
+2024-11-30 00:47:59,078 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-30 00:47:59,078 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-30 00:47:59,078 - INFO -  * Restarting with stat
+2024-11-30 00:47:59,361 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:47:59,361 - INFO - Starting Flask application on port 5001
+2024-11-30 00:47:59,364 - WARNING -  * Debugger is active!
+2024-11-30 00:47:59,372 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:48:09,548 - INFO - 127.0.0.1 - - [30/Nov/2024 00:48:09] "GET / HTTP/1.1" 200 -
+2024-11-30 00:48:17,040 - INFO - 127.0.0.1 - - [30/Nov/2024 00:48:17] "POST /optimize HTTP/1.1" 200 -
+2024-11-30 00:48:17,541 - INFO - Starting company analysis for: 한화생명
+2024-11-30 00:48:17,542 - INFO - Starting web search for company: 한화생명
+2024-11-30 00:48:30,121 - WARNING - Error scraping https://www.hanwhalife.com/static/mobile/company/MCI_COVS000_P10000.htm: HTTPSConnectionPool(host='www.hanwhalife.com', port=443): Read timed out. (read timeout=10)
+2024-11-30 00:48:33,317 - WARNING - Error scraping https://m.hanwhalife.com/static/mobile/company/MCI_SCVM000_T10000.htm: HTTPSConnectionPool(host='m.hanwhalife.com', port=443): Max retries exceeded with url: /static/mobile/company/MCI_SCVM000_T10000.htm (Caused by SSLError(SSLError(1, '[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1020)')))
+2024-11-30 00:48:38,491 - WARNING - Error scraping https://m.hanwhalife.com/mobile/company/history/MCI_CODT000_T20000.do: HTTPSConnectionPool(host='m.hanwhalife.com', port=443): Max retries exceeded with url: /mobile/company/history/MCI_CODT000_T20000.do (Caused by SSLError(SSLError(1, '[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1020)')))
+2024-11-30 00:48:40,344 - INFO - Sending company analysis prompt to Ollama
+2024-11-30 00:49:37,907 - INFO - Successfully received company analysis from Ollama
+2024-11-30 00:49:38,409 - INFO - Starting resume optimization
+2024-11-30 00:49:38,409 - INFO - Sending resume optimization prompt to Ollama
+2024-11-30 00:50:03,547 - INFO - Successfully received optimized resume from Ollama
+2024-11-30 00:50:03,548 - INFO - Successfully completed optimization process
+2024-11-30 00:51:25,124 - INFO - 127.0.0.1 - - [30/Nov/2024 00:51:25] "GET / HTTP/1.1" 200 -
+2024-11-30 00:53:07,011 - INFO - 127.0.0.1 - - [30/Nov/2024 00:53:07] "POST /optimize HTTP/1.1" 200 -
+2024-11-30 00:53:07,513 - INFO - Starting company analysis for: 삼성전자
+2024-11-30 00:53:07,514 - INFO - Starting web search for company: 삼성전자
+2024-11-30 00:53:20,584 - INFO - Sending company analysis prompt to Ollama
+2024-11-30 00:54:24,219 - INFO - Successfully received company analysis from Ollama
+2024-11-30 00:54:24,724 - INFO - Starting resume optimization
+2024-11-30 00:54:24,724 - INFO - Sending resume optimization prompt to Ollama
+2024-11-30 00:54:46,123 - INFO - Successfully received optimized resume from Ollama
+2024-11-30 00:54:46,124 - INFO - Successfully completed optimization process
+2024-11-30 00:56:06,160 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 00:56:06,224 - INFO -  * Restarting with stat
+2024-11-30 00:56:06,567 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 00:56:06,567 - INFO - Starting Flask application on port 5001
+2024-11-30 00:56:06,571 - WARNING -  * Debugger is active!
+2024-11-30 00:56:06,579 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 00:56:40,590 - INFO - 127.0.0.1 - - [30/Nov/2024 00:56:40] "GET / HTTP/1.1" 200 -
+2024-11-30 00:56:46,306 - INFO - 127.0.0.1 - - [30/Nov/2024 00:56:46] "POST /optimize HTTP/1.1" 200 -
+2024-11-30 00:56:46,811 - INFO - Starting company analysis for: 삼성전자
+2024-11-30 00:56:46,811 - INFO - Starting web search for company: 삼성전자
+2024-11-30 00:57:01,194 - INFO - Sending company analysis prompt to Ollama
+2024-11-30 01:01:22,540 - INFO - Successfully received company analysis from Ollama
+2024-11-30 01:01:23,045 - INFO - Starting resume optimization
+2024-11-30 01:01:23,045 - INFO - Sending resume optimization prompt to Ollama
+2024-11-30 01:06:57,230 - INFO - Successfully received optimized resume from Ollama
+2024-11-30 01:06:57,231 - INFO - Successfully completed optimization process
+2024-11-30 01:19:15,142 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 01:19:15,213 - INFO -  * Restarting with stat
+2024-11-30 01:19:15,613 - INFO - Successfully initialized Ollama with gemma2 model
+2024-11-30 01:19:15,614 - INFO - Starting Flask application on port 5001
+2024-11-30 01:19:15,619 - WARNING -  * Debugger is active!
+2024-11-30 01:19:15,627 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 01:19:45,356 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 01:19:45,461 - INFO -  * Restarting with stat
+2024-11-30 01:19:45,784 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:19:45,785 - INFO - Starting Flask application on port 5001
+2024-11-30 01:19:45,787 - WARNING -  * Debugger is active!
+2024-11-30 01:19:45,793 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 01:20:24,144 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:20:24,145 - INFO - Starting Flask application on port 5001
+2024-11-30 01:20:24,149 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-30 01:20:24,149 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-30 01:20:24,149 - INFO -  * Restarting with stat
+2024-11-30 01:20:24,441 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:20:24,441 - INFO - Starting Flask application on port 5001
+2024-11-30 01:20:24,443 - WARNING -  * Debugger is active!
+2024-11-30 01:20:24,449 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 01:20:31,808 - INFO - 127.0.0.1 - - [30/Nov/2024 01:20:31] "GET / HTTP/1.1" 200 -
+2024-11-30 01:20:31,837 - INFO - 127.0.0.1 - - [30/Nov/2024 01:20:31] "GET /models HTTP/1.1" 200 -
+2024-11-30 01:20:31,844 - INFO - 127.0.0.1 - - [30/Nov/2024 01:20:31] "GET /model HTTP/1.1" 200 -
+2024-11-30 01:21:14,698 - INFO -  * Detected change in '/Users/danny/Documents/GitHub/resume-converter/app.py', reloading
+2024-11-30 01:21:14,781 - INFO -  * Restarting with stat
+2024-11-30 01:21:15,100 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:21:15,101 - INFO - Starting Flask application on port 5001
+2024-11-30 01:21:15,103 - WARNING -  * Debugger is active!
+2024-11-30 01:21:15,109 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 01:22:33,799 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:22:33,800 - INFO - Starting Flask application on port 5001
+2024-11-30 01:22:33,804 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-30 01:22:33,804 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-30 01:22:33,804 - INFO -  * Restarting with stat
+2024-11-30 01:22:34,084 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:22:34,084 - INFO - Starting Flask application on port 5001
+2024-11-30 01:22:34,086 - WARNING -  * Debugger is active!
+2024-11-30 01:22:34,093 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 01:22:54,531 - INFO - 127.0.0.1 - - [30/Nov/2024 01:22:54] "GET / HTTP/1.1" 200 -
+2024-11-30 01:22:54,559 - INFO - 127.0.0.1 - - [30/Nov/2024 01:22:54] "GET /models HTTP/1.1" 200 -
+2024-11-30 01:22:54,569 - INFO - 127.0.0.1 - - [30/Nov/2024 01:22:54] "GET /model HTTP/1.1" 200 -
+2024-11-30 01:23:06,510 - INFO - Switched to model: mistral:latest
+2024-11-30 01:23:06,511 - INFO - 127.0.0.1 - - [30/Nov/2024 01:23:06] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:23:08,068 - INFO - Switched to model: qwen:latest
+2024-11-30 01:23:08,068 - INFO - 127.0.0.1 - - [30/Nov/2024 01:23:08] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:26:00,726 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:26:00,726 - INFO - Starting Flask application on port 5001
+2024-11-30 01:26:00,731 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-30 01:26:00,731 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-30 01:26:00,731 - INFO -  * Restarting with stat
+2024-11-30 01:26:01,001 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:26:01,001 - INFO - Starting Flask application on port 5001
+2024-11-30 01:26:01,003 - WARNING -  * Debugger is active!
+2024-11-30 01:26:01,011 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 01:26:12,234 - INFO - 127.0.0.1 - - [30/Nov/2024 01:26:12] "GET / HTTP/1.1" 200 -
+2024-11-30 01:26:12,269 - INFO - 127.0.0.1 - - [30/Nov/2024 01:26:12] "GET /models HTTP/1.1" 200 -
+2024-11-30 01:26:12,289 - INFO - 127.0.0.1 - - [30/Nov/2024 01:26:12] "GET /model HTTP/1.1" 200 -
+2024-11-30 01:26:18,399 - INFO - Switched to model: llama2:latest
+2024-11-30 01:26:18,400 - INFO - 127.0.0.1 - - [30/Nov/2024 01:26:18] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:26:20,045 - INFO - Switched to model: gemma2:latest
+2024-11-30 01:26:20,045 - INFO - 127.0.0.1 - - [30/Nov/2024 01:26:20] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:27:20,257 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:27:20,258 - INFO - Starting Flask application on port 5001
+2024-11-30 01:27:20,263 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-30 01:27:20,263 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-30 01:27:20,263 - INFO -  * Restarting with stat
+2024-11-30 01:27:20,538 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:27:20,539 - INFO - Starting Flask application on port 5001
+2024-11-30 01:27:20,540 - WARNING -  * Debugger is active!
+2024-11-30 01:27:20,548 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 01:27:24,946 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:24] "GET / HTTP/1.1" 200 -
+2024-11-30 01:27:24,968 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:24] "GET /models HTTP/1.1" 200 -
+2024-11-30 01:27:24,980 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:24] "GET /model HTTP/1.1" 200 -
+2024-11-30 01:27:27,450 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:27] "GET / HTTP/1.1" 200 -
+2024-11-30 01:27:27,478 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:27] "GET /models HTTP/1.1" 200 -
+2024-11-30 01:27:27,493 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:27] "GET /model HTTP/1.1" 200 -
+2024-11-30 01:27:30,290 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:30] "GET / HTTP/1.1" 200 -
+2024-11-30 01:27:30,328 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:30] "GET /models HTTP/1.1" 200 -
+2024-11-30 01:27:30,346 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:30] "GET /model HTTP/1.1" 200 -
+2024-11-30 01:27:32,589 - INFO - Switched to model: llama2:latest
+2024-11-30 01:27:32,590 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:32] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:27:34,587 - INFO - Switched to model: qwen:latest
+2024-11-30 01:27:34,588 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:34] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:27:36,307 - INFO - Switched to model: neural-chat:latest
+2024-11-30 01:27:36,308 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:36] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:27:44,201 - INFO - New model registered: llama3.1:latest
+2024-11-30 01:27:44,201 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:44] "POST /models HTTP/1.1" 200 -
+2024-11-30 01:27:44,206 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:44] "GET /models HTTP/1.1" 200 -
+2024-11-30 01:27:44,211 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:44] "GET /model HTTP/1.1" 200 -
+2024-11-30 01:27:44,215 - INFO - Switched to model: llama3.1:latest
+2024-11-30 01:27:44,215 - INFO - 127.0.0.1 - - [30/Nov/2024 01:27:44] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:28:00,622 - INFO - 127.0.0.1 - - [30/Nov/2024 01:28:00] "POST /optimize HTTP/1.1" 200 -
+2024-11-30 01:28:01,128 - INFO - Starting company analysis for: 삼성전자
+2024-11-30 01:28:01,128 - INFO - Starting web search for company: 삼성전자
+2024-11-30 01:28:15,113 - INFO - Sending company analysis prompt to Ollama
+2024-11-30 01:28:54,439 - INFO - Successfully received company analysis from Ollama
+2024-11-30 01:28:54,944 - INFO - Starting resume optimization
+2024-11-30 01:28:54,945 - INFO - Sending resume optimization prompt to Ollama
+2024-11-30 01:29:21,109 - INFO - Successfully received optimized resume from Ollama
+2024-11-30 01:29:21,109 - INFO - Successfully completed optimization process
+2024-11-30 01:31:19,994 - INFO - 127.0.0.1 - - [30/Nov/2024 01:31:19] "GET / HTTP/1.1" 200 -
+2024-11-30 01:31:20,029 - INFO - 127.0.0.1 - - [30/Nov/2024 01:31:20] "GET /models HTTP/1.1" 200 -
+2024-11-30 01:31:20,044 - INFO - 127.0.0.1 - - [30/Nov/2024 01:31:20] "GET /model HTTP/1.1" 200 -
+2024-11-30 01:31:24,676 - INFO - Switched to model: qwq:latest
+2024-11-30 01:31:24,676 - INFO - 127.0.0.1 - - [30/Nov/2024 01:31:24] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:31:25,846 - INFO - Switched to model: qwen:latest
+2024-11-30 01:31:25,846 - INFO - 127.0.0.1 - - [30/Nov/2024 01:31:25] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:31:28,103 - INFO - Switched to model: mistral:latest
+2024-11-30 01:31:28,104 - INFO - 127.0.0.1 - - [30/Nov/2024 01:31:28] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:33:05,442 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:33:05,442 - INFO - Starting Flask application on port 5001
+2024-11-30 01:33:05,446 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-30 01:33:05,446 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-30 01:33:05,447 - INFO -  * Restarting with stat
+2024-11-30 01:33:05,704 - INFO - Successfully initialized Ollama with model: gemma2:latest
+2024-11-30 01:33:05,704 - INFO - Starting Flask application on port 5001
+2024-11-30 01:33:05,706 - WARNING -  * Debugger is active!
+2024-11-30 01:33:05,714 - INFO -  * Debugger PIN: 125-640-457
+2024-11-30 01:33:10,071 - INFO - 127.0.0.1 - - [30/Nov/2024 01:33:10] "GET / HTTP/1.1" 200 -
+2024-11-30 01:33:10,117 - INFO - 127.0.0.1 - - [30/Nov/2024 01:33:10] "GET /models HTTP/1.1" 200 -
+2024-11-30 01:33:10,133 - INFO - 127.0.0.1 - - [30/Nov/2024 01:33:10] "GET /model HTTP/1.1" 200 -
+2024-11-30 01:33:12,343 - INFO - Switched to model: mistral:latest
+2024-11-30 01:33:12,343 - INFO - 127.0.0.1 - - [30/Nov/2024 01:33:12] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:33:14,115 - INFO - Switched to model: neural-chat:latest
+2024-11-30 01:33:14,115 - INFO - 127.0.0.1 - - [30/Nov/2024 01:33:14] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:33:16,857 - INFO - Switched to model: codellama:latest
+2024-11-30 01:33:16,857 - INFO - 127.0.0.1 - - [30/Nov/2024 01:33:16] "POST /model HTTP/1.1" 200 -
+2024-11-30 01:33:19,443 - INFO - Switched to model: gemma2:latest
+2024-11-30 01:33:19,445 - INFO - 127.0.0.1 - - [30/Nov/2024 01:33:19] "POST /model HTTP/1.1" 200 -
