@@ -175,7 +175,7 @@ def get_company_info_from_web(company_name):
         logger.error(f"Error in web search: {str(e)}")
         raise Exception(f"웹 검색 중 오류가 발생했습니다: {str(e)}")
 
-def analyze_company(company_name):
+def analyze_company(company_name, request_llm):
     """
     Analyze company information and values using web data and Ollama
     """
@@ -242,7 +242,7 @@ def analyze_company(company_name):
         """
         
         logger.info("Sending company analysis prompt to Ollama")
-        response = llm(prompt)
+        response = request_llm(prompt)
         logger.info("Successfully received company analysis from Ollama")
         yield response.strip()
         
@@ -250,7 +250,7 @@ def analyze_company(company_name):
         logger.error(f"Error in company analysis: {str(e)}")
         raise Exception(f"회사 분석 중 오류가 발생했습니다: {str(e)}")
 
-def optimize_resume(resume_text, company_analysis):
+def optimize_resume(resume_text, company_analysis, request_llm):
     """
     Optimize the resume based on company analysis
     """
@@ -280,14 +280,14 @@ def optimize_resume(resume_text, company_analysis):
         """
         
         logger.info("Sending resume optimization prompt to Ollama")
-        response = llm(prompt)
+        response = request_llm(prompt)
         logger.info("Successfully received optimized resume from Ollama")
         return response.strip()
     except Exception as e:
         logger.error(f"Error in resume optimization: {str(e)}")
         raise Exception(f"이력서 최적화 중 오류가 발생했습니다: {str(e)}")
 
-def generate_progress():
+def generate_progress(company_name, resume_text, request_llm):
     try:
         yield "data: " + json.dumps({"status": "started", "message": "분석 시작..."}) + "\n\n"
         time.sleep(0.5)
@@ -296,7 +296,7 @@ def generate_progress():
         
         # Company analysis now yields progress updates
         company_analysis = ""
-        for progress in analyze_company(company_name):
+        for progress in analyze_company(company_name, request_llm):
             if isinstance(progress, str):
                 try:
                     progress_data = json.loads(progress)
@@ -314,7 +314,7 @@ def generate_progress():
         time.sleep(0.5)
         
         yield "data: " + json.dumps({"status": "optimizing", "message": "이력서 최적화 중..."}) + "\n\n"
-        optimized_resume = optimize_resume(resume_text, company_analysis)
+        optimized_resume = optimize_resume(resume_text, company_analysis, request_llm)
         
         result = {
             "status": "complete",
@@ -337,14 +337,22 @@ def home():
 def optimize():
     try:
         data = request.get_json()
-        global company_name, resume_text  # Make these accessible to generate_progress
         company_name = data.get('company')
         resume_text = data.get('resume')
         
         if not company_name or not resume_text:
             return jsonify({'error': '회사명과 이력서 내용을 모두 입력해주세요.'}), 400
 
-        return Response(generate_progress(), mimetype='text/event-stream')
+        selected_model = current_model
+        request_llm = Ollama(
+            model=selected_model,
+            base_url=OLLAMA_BASE_URL,
+            **dict(MODEL_SETTINGS.get(selected_model, {}))
+        )
+        return Response(
+            generate_progress(company_name, resume_text, request_llm),
+            mimetype='text/event-stream'
+        )
     except Exception as e:
         logger.error(f"Error in optimization process: {str(e)}")
         return jsonify({'error': str(e)}), 500
